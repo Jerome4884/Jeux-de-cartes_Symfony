@@ -4,6 +4,5 @@ controllers:
         namespace: App\Controller
     type: attribute
 
-    jeu-de-cartes_directory:
-    path: /card
-    controller: App\Controller\ControllerCardController::list
+
+

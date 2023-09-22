@@ -1,0 +1,32 @@
+{# templates/jeu_de_cartes.html.twig #}
+
+{% extends '/base.html.twig' %} 
+
+{% block title %} Cards Game {% endblock %} 
+
+{% block body %}
+
+{# @Route("/jeu_de_cartes", name="jeu_de_cartes_directory") #}
+
+    <h1>Card hand</h1>
+    {# <ul>
+        {% for card in cards %}
+            <li>{{ card.color }} {{ card.value }}</li>
+        {% endfor %}
+    </ul> #}
+
+    <h2>Unsorted hand :</h2>
+    <ul>
+        {% for cards in hand %}
+            <li>{{ cards.couleurs }} {{ cards.valeurs }}</li>
+        {% endfor %}
+    </ul>
+
+    {# <h2>Hand sorted :</h2>
+    <ul>
+        {% for cards in handSorted %}
+            <li>{{ card.couleurs }} {{ card.valeurs }}</li>
+        {% endfor %}
+    </ul> #}
+
+{% endblock %}

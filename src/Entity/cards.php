@@ -6,6 +6,7 @@ use App\Repository\CartesRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: CartesRepository::class)]
+
 class Cards
 {
     #[ORM\Id]
@@ -27,27 +28,4 @@ class Cards
         return $this->id;
     }
 
-    public function getColor(): ?string
-    {
-        return $this->Color;
-    }
-
-    public function setColor(string $Color): static
-    {
-        $this->Color = $Color;
-
-        return $this;
-    }
-
-    public function getValue(): ?string
-    {
-        return $this->value;
-    }
-
-    public function setValue(string $value): static
-    {
-        $this->value = $value;
-
-        return $this;
-    }
 }

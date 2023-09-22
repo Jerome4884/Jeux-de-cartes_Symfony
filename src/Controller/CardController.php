@@ -5,15 +5,24 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Entity\Cards;
+use App\Entity\cards;
+use App\Entity\Colors;
+use App\Entity\Values;
 
-// Définit la class cardControl avec la méthode 'AbstractController' comme extension, qui agit comme constructeur
-class cardControl extends AbstractController {
 
-     // Agit comme metadonné
-     // @Route("/Jeu-de-cartes_directory", name="jeu-de-cartes_directory")
-     
-     public function cardGame(): Response{
+#[Route('/cardsGame', name: 'jeu_de_cartes_directory')]
+
+class CardController extends AbstractController {
+
+    #[Route('/', name: 'index')]
+
+    public function index(): Response {
+        return $this->render('/controller_card/jeux-de-cartes.html.twig', [
+            'controller_name' => 'CardController',
+        ]);
+    }
+
+    public function cardGame(): Response{
 
         // génère dix cartes aléatoirement
         $hand = $this->handCardGenerate();
@@ -36,13 +45,13 @@ class cardControl extends AbstractController {
             echo $card->getColor() . " " . $card->getValue() . "<br>";
         }
         // Permet d'avoir un visuel
-        return $this->render('card/index.html.twig', ['hand' => $hand]);
+        return $this->render('./templates/controller_card/jeux-de-cartes.html.twig', ['hand' => $hand]);
 
         return new Response();
     }
 
-// Creer une fonction pour générer cartes aléatoirement
-private function handCardGenerate(): array {
+    // Creer une fonction pour générer cartes aléatoirement
+    private function handCardGenerate(): array {
 
     $colors = ["Carreaux", "Coeur", "Pique", "Trèfle"];
     $values = ["AS", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Valet", "Dame", "Roi"];
@@ -52,13 +61,15 @@ private function handCardGenerate(): array {
 
     // Boucle pour générer 10 cartes aléatoires
     for ($i = 0; $i < 10; $i++) {
-        $card = new Cards(); // Crée une nouvelle instance de la classe Carte
-        $card->setColor($colors[rand(0, 3)]); // Attribue une couleur aléatoire
+        $card = new CardController(); // Crée une nouvelle instance de la classe Carte
+        $card->setColor($colors[rand(0, 1)]); // Attribue une couleur aléatoire
         $card->setValue($values[rand(0, 12)]); // Attribue une valeur aléatoire
         $hand[] = $card; // Ajoute la carte à la main
     }
 
     return $hand; // Retourne la main de cartes générée
-}}
+
+    }
+}
 
 ?>
