@@ -6,27 +6,29 @@
 
 {% block body %}
 
-{# @Route("/jeu_de_cartes", name="jeu_de_cartes_directory") #}
 
-    <h1>Card hand</h1>
-    {# <ul>
-        {% for card in cards %}
-            <li>{{ card.color }} {{ card.value }}</li>
-        {% endfor %}
-    </ul> #}
+    {% if hand is defined %}
+         <h1>Les cartes</h1>
+            <ul>
+                {# {% for cards in Cards %} #}
+                    {# <li>{{ hand.couleurs }}{{hand.valeurs}}</li> #}
+                {# {% endfor %} #}
+            </ul>
 
-    <h2>Unsorted hand :</h2>
-    <ul>
-        {% for cards in hand %}
-            <li>{{ cards.couleurs }} {{ cards.valeurs }}</li>
-        {% endfor %}
-    </ul>
+        <h2>Main non trié :</h2>
 
-    {# <h2>Hand sorted :</h2>
-    <ul>
-        {% for cards in handSorted %}
-            <li>{{ card.couleurs }} {{ card.valeurs }}</li>
-        {% endfor %}
-    </ul> #}
+            <ul>
+                {% for cards in hand %}
+                    <li>{{ cards.color }} {{ cards.value }}</li>
+                {% endfor %}
+            </ul> 
 
+        <h2>Main trié :</h2>
+        
+            <ul>
+                {% for cards in handSorted %}
+                    <li>{{ cards.color }} {{ cards.value }}</li>
+                {% endfor %}
+            </ul>
+    {% endif %}
 {% endblock %}

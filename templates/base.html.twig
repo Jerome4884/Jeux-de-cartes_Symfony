@@ -5,11 +5,20 @@
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=10">
-        <title>{% block title %}Jeux de cartes{% endblock %}</title>
+        <title>{% block title %}{% endblock %}</title>
 
+        <!--feuilles de style-->
+        {# asset et une fonction de twig qui permet de récuperer fichier dans le dossier public #}
+        <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
         {% block stylesheets %}{% endblock %}
+        <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 
+        <!--script js-->
+        {# defer permet de ne pas lancer le js avant le dom, vu qu'on est dans le head#}
+        <script src="{{ asset('assets/js/bootstrap.bundle.min.js')}}"defer></script>
         {% block javascripts %}{% endblock %}
+        <script src="{{ asset('assets/js/script.js')}}"defer></script>
+
     </head>
     <body>
         {% block body %}
