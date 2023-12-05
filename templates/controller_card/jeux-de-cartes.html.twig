@@ -10,9 +10,10 @@
     {% if hand is defined %}
          <h1>Les cartes</h1>
             <ul>
-                {# {% for cards in Cards %} #}
-                    {# <li>{{ hand.couleurs }}{{hand.valeurs}}</li> #}
-                {# {% endfor %} #}
+                {% for cards in Cards %}
+                    <li>{{ hand.couleurs }}{{hand.valeurs}}</li>
+                    <li></li>
+                {% endfor %}
             </ul>
 
         <h2>Main non trié :</h2>

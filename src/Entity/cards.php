@@ -63,18 +63,18 @@ class Cards
         return $this;
     }
 
-    // #[ORM\Column(type:'integer')]
-    // private $rand;
+    #[ORM\Column(type:'integer')]
+    private $rand;
 
-    // public function getRand()
-    // {
-    //     return $this->rand;
-    // }
+    public function getRand()
+    {
+        return $this->rand;
+    }
 
-    // public function setRand($rand)
-    // {
-    //     $this->rand = $rand;
-    // }
+    public function setRand($rand)
+    {
+        $this->rand = $rand;
+    }
 
 }
 

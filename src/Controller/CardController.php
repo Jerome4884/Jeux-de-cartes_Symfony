@@ -83,7 +83,7 @@ class CardController extends AbstractController {
             'handSorted' => $handSorted,
         ]);
 
-        // return new Response();
+        return new Response();
     }
 }
 
